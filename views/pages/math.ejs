@@ -31,7 +31,7 @@
                         operator: document.getElementById("operator").value,
                     },
                     success: function(result) {
-                        document.getElementById("resultOfEquation").innerHTML = JSON.parse(result)
+                        document.getElementById("resultOfEquation").innerHTML = result.equation
                     }
                 });
             });

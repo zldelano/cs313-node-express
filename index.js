@@ -48,8 +48,8 @@ express()
             'divide': '/',
             'multiply': '*'
         };
-        var op1 = Number(req.query.op1) + 10;
-        var op2 = Number(req.query.op2) + 10;
+        var op1 = Number(req.query.op1);
+        var op2 = Number(req.query.op2);
         var operator = operatorMap[req.query.operator];
         var equation = op1.toString() + operator + op2.toString();
         var result = eval(equation);
@@ -57,6 +57,9 @@ express()
             equation: equation,
             result: result
         });
+    })
+    .get('/postal', function(req, res) {
+        res.render('pages/postal');
     })
     .listen(PORT, () => console.log(`Listening on ${ PORT }`))
     // .get('/math', function(req, res) {
